@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/scss/bootstrap';
+@import '~font-awesome-4.7.0/scss/font-awesome.scss';
+$fa-font-path: '~font-awesome-4.7.0/fonts';
 
 html {
   height: 100%;
@@ -42,3 +44,6 @@ strong {
 }
 
 /* Importing Bootstrap SCSS file. */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

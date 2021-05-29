@@ -1,0 +1,13 @@
+api:
+  url: http://localhost:8081/car
+app:
+  name: SuperCoolApp
+  numbers: 1,2,3
+complex:
+  cars:
+    - make: BMW
+      model: 520d
+      id: kjklj0
+    - make: Mercedes
+      model: C220d
+      id: 5k0fkk0

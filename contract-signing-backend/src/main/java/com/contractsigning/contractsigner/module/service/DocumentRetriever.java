@@ -1,6 +1,5 @@
-package com.contractsigning.contractsigner.module.document;
+package com.contractsigning.contractsigner.module.service;
 
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service

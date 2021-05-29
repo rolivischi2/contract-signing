@@ -1,4 +1,4 @@
-package com.contractsigning.contractsigner.module.signer;
+package com.contractsigning.contractsigner.module.service.signer;
 
 public enum SupportedFieldTypes {
     SIG("Sig");

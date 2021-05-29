@@ -7,12 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignatureCanvasComponent } from './signature-canvas/signature-canvas.component';
 import { InlinePdfViewerComponent } from './inline-pdf-viewer/inline-pdf-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ContractListComponent } from './contract-list/contract-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignatureCanvasComponent,
-    InlinePdfViewerComponent
+    InlinePdfViewerComponent,
+    ContractListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Contract name</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contract of contracts">
+    <td>{{contract.name}}</td>
+    <td>
+        <button type="button" class="btn btn-primary" (click)="onSignClicked(contract)"><i class="fa fa-pencil-square-o"></i></button>
+    </td>
+  </tr>
+  </tbody>
+</table>

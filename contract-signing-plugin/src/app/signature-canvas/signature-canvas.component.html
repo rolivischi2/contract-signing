@@ -1,4 +1,10 @@
-<div *ngFor="let page of pages">
-    <canvas #canvas hidden ></canvas>
-    <img [src]="page">
+<div class="modal-container">
+  <div class="signature-pad">
+      <canvas #sPad style="touch-action: none;"></canvas>
+  </div>
+    <div class="button-row">
+      <button class="btn btn-block btn-success" (click)="savePNG()"><i class="fa fa-check" aria-hidden="true"></i></button>
+      <button class="btn btn-block btn-danger" (click)="clear()"><i class="fa fa-times" aria-hidden="true"></i></button>
+      <button class="btn btn-block btn-warning" (click)="undo()"><i class="fa fa-undo" aria-hidden="true"></i></button>
+    </div>
 </div>

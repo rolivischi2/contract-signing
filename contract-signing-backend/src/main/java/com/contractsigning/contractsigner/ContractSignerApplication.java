@@ -1,12 +1,10 @@
 package com.contractsigning.contractsigner;
 
-import com.contractsigning.contractsigner.module.signer.DocumentSignatureInserter;
+import com.contractsigning.contractsigner.module.service.signer.DocumentSignatureInserter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 @SpringBootApplication
 public class ContractSignerApplication {

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InlinePdfViewerComponent } from './inline-pdf-viewer/inline-pdf-viewer.component';
+import {SignatureCanvasComponent} from "./signature-canvas/signature-canvas.component";
+import {ContractListComponent} from "./contract-list/contract-list.component";
 
 const routes: Routes = [
-  {path: 'inline', component: InlinePdfViewerComponent},
+  {path: 'signed', component: SignatureCanvasComponent},
+  {path: '*', redirectTo: 'templates'},
+  {path: 'templates', component: ContractListComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
