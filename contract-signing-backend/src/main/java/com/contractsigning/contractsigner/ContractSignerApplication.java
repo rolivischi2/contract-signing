@@ -11,12 +11,12 @@ public class ContractSignerApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(ContractSignerApplication.class, args);
-		DocumentSignatureInserter inserter = new DocumentSignatureInserter();
+		//DocumentSignatureInserter inserter = new DocumentSignatureInserter();
 		String dest = "src/main/resources/signed/signed-contract.pdf";
 		String src = "src/main/resources/templates/dummy.pdf";
 		String imageFile = "src/main/resources/static/signatures/sig.png";
 
-		inserter.addSignatureImageToDocument(dest, src, imageFile);
+		//inserter.addSignatureImageToDocument(dest, src, imageFile);
 	}
 
 }

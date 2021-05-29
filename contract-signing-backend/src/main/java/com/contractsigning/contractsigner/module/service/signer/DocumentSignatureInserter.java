@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class DocumentSignatureInserter {
 
-    public void addSignatureImageToDocument(String dest, String src, String imageSource) throws IOException {
+    public void addSignatureImageToDocument(String dest, String src, byte[] img) throws IOException {
         PdfReader reader = new PdfReader(src);
 
         PdfWriter writer = new PdfWriter(dest);
@@ -36,7 +36,7 @@ public class DocumentSignatureInserter {
         // Getting fields of interest
         List<PdfFormField> fieldsOfInterest = fetchFieldsOfInterest(form);
         // Creating images scaled and at their position
-        List<Image> images = createImagesAtSignaturePosition(fieldsOfInterest, imageSource);
+        List<Image> images = createImagesAtSignaturePosition(fieldsOfInterest, img);
         // Adding images to the document
         images.forEach(document::add);
         // Flattening all formFields
@@ -52,8 +52,8 @@ public class DocumentSignatureInserter {
                 .collect(Collectors.toList());
     }
 
-    private List<Image> createImagesAtSignaturePosition(List<PdfFormField> fields, String imageUri) throws MalformedURLException {
-        ImageData imageData = ImageDataFactory.create(imageUri);
+    private List<Image> createImagesAtSignaturePosition(List<PdfFormField> fields, byte[] image) throws MalformedURLException {
+        ImageData imageData = ImageDataFactory.createPng(image);
         return fields.stream()
                 .map(field -> {
                     Image img = new Image(imageData);

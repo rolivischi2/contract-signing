@@ -8,6 +8,8 @@ import { SignatureCanvasComponent } from './signature-canvas/signature-canvas.co
 import { InlinePdfViewerComponent } from './inline-pdf-viewer/inline-pdf-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ContractListComponent } from './contract-list/contract-list.component';
+import {SignatureService} from "./signature.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { ContractListComponent } from './contract-list/contract-list.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    PdfViewerModule
+    PdfViewerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SignatureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

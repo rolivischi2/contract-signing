@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import SignaturePad from 'signature_pad';
 import {Contract} from "../model/Contract";
+import {SignatureService} from "../signature.service";
 
 @Component({
   selector: 'app-signature-canvas',
@@ -14,7 +15,7 @@ export class SignatureCanvasComponent implements OnInit, AfterViewInit {
   @Input() contract: Contract | undefined;
 
 
-  constructor() {}
+  constructor(private signatureService: SignatureService) {}
 
   ngOnInit(): void {
   }
@@ -38,22 +39,6 @@ export class SignatureCanvasComponent implements OnInit, AfterViewInit {
     }
   }
 
-  download(dataURL: string, filename: string) {
-    if (navigator.userAgent.indexOf('Safari') > -1 && navigator.userAgent.indexOf('Chrome') === -1) {
-      window.open(dataURL);
-    } else {
-      const blob = this.dataURLToBlob(dataURL);
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-
-      document.body.appendChild(a);
-      a.click();
-
-      window.URL.revokeObjectURL(url);
-    }
-  }
 
   dataURLToBlob(dataURL: string) {
     // Code taken from https://github.com/ebidel/filer.js
@@ -68,22 +53,14 @@ export class SignatureCanvasComponent implements OnInit, AfterViewInit {
     return new Blob([uInt8Array], { type: contentType });
   }
 
-  savePNG() {
+  saveSignature(): void {
     if (this.signaturePad.isEmpty()) {
       alert('Please provide a signature first.');
+      return;
     } else {
       const dataURL = this.signaturePad.toDataURL();
-      this.download(dataURL, 'signature.png');
+      // @ts-ignore
+      this.signatureService.signContract(this.contract.id ,new File([this.dataURLToBlob(dataURL)], "signature.png")).subscribe();
     }
   }
-
-  saveSVG() {
-    if (this.signaturePad.isEmpty()) {
-      alert('Please provide a signature first.');
-    } else {
-      const dataURL = this.signaturePad.toDataURL('image/svg+xml');
-      this.download(dataURL, 'signature.svg');
-    }
-  }
-
 }
