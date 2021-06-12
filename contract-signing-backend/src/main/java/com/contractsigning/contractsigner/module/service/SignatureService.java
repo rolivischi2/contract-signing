@@ -14,7 +14,7 @@ public class SignatureService {
     private final DocumentSignatureInserter documentSignatureInserter;
 
     public void insertSignature(String contractId, MultipartFile multipartFile) throws IOException {
-        String dest = "src/main/resources/signed/signed-contract.pdf";
+        String dest = String.format("src/main/resources/signed/%s-%d.pdf", contractId, System.currentTimeMillis());
         String src = "src/main/resources/templates/dummy.pdf";
         documentSignatureInserter.addSignatureImageToDocument(dest, src, multipartFile.getBytes());
     }
